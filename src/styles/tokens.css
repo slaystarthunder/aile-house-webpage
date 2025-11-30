@@ -1,0 +1,49 @@
+:root {
+  /* Colors */
+  --brand-yellow: #f3ff47;
+  --ink: #111;
+  --accent: #ff22b5;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 22px;
+
+  /* Typography – font family */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Inter, Arial, sans-serif;
+
+  /* Typography – old sizes (if something still uses them) */
+  --size-sm: clamp(12px, 1.4vw, 14px);
+  --size-md: clamp(14px, 2vw, 18px);
+  --size-lg: clamp(28px, 4vw, 56px);
+
+  /* Typography – new scale */
+  --font-xs: clamp(0.75rem, 0.7rem + 0.3vw, 0.85rem);
+  --font-sm: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
+  --font-md: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
+  --font-lg: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  --font-xl: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  --font-xxl: clamp(2.25rem, 1.8rem + 1.4vw, 3.2rem);
+
+  /* Layering */
+  --z-hero: 1;
+  --z-content: 2;
+  --z-menu: 1000;
+
+  /* Shadow */
+  --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.22),
+               0 8px 24px rgba(0, 0, 0, 0.18);
+
+  /* Layout */
+  --container-lg: 1200px;
+  --page-pad: clamp(16px, 3vw, 40px);
+  --bubble-offset: 56px;
+}

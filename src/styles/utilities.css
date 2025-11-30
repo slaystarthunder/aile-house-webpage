@@ -1,0 +1,300 @@
+/* ===== HERO TYPOGRAPHY ===== */
+
+.site-hero {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-hero);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 18px);
+  text-align: center;
+  padding: clamp(24px, 6vw, 96px) 16px;
+  background: var(--brand-yellow);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.title {
+  margin: 0;
+  line-height: 0.95;
+  font-weight: 800;
+  font-size: var(--font-xxl);
+}
+
+.underline {
+  display: block;
+  width: min(680px, 60vw);
+  height: 6px;
+  background: var(--ink);
+  border-radius: 4px;
+  margin-top: clamp(6px, 1vw, 10px);
+}
+
+/* ===== SECTION LAYOUT + GRID ===== */
+
+.pad-md {
+  padding: var(--space-4);
+}
+
+.pad-lg {
+  padding: var(--space-8);
+}
+
+.section-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* ===== SURFACE TYPOGRAPHY & SPACING ===== */
+
+.surface {
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+.surface--flat {
+  box-shadow: none;
+}
+
+.surface--elevated {
+  box-shadow: var(--shadow-lg);
+}
+
+.surface--dark {
+  background: #111;
+  color: #fafafa;
+}
+
+.surface--light {
+  background: #fff;
+  color: #111;
+}
+
+/* ===== TEXT STYLES FOR SECTION CONTENT ===== */
+
+.panel-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.panel-text {
+  font-size: var(--font-md);
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+/* ===== BUTTONS ===== */
+
+.button-accent {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+
+.hambtn {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + var(--page-pad));
+  right: calc(
+    env(safe-area-inset-right) + var(--page-pad) + var(--bubble-offset)
+  );
+  z-index: var(--z-menu);
+  width: 54px;
+  height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  cursor: pointer;
+}
+
+.hambtn:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+/* Modify alignment to container if needed */
+.hambtn.align-container {
+  right: calc(
+    50vw - min(var(--container-lg) / 2, 50vw - var(--page-pad))
+  );
+}
+
+/* ===== ICON (3 lines → X) ===== */
+
+.hamicon {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 0 auto;
+  background: #111;
+  transform-origin: center;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.hamicon::before,
+.hamicon::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: #111;
+  transform-origin: center;
+  transition: transform .25s ease, top .25s ease, bottom .25s ease, opacity .2s ease;
+}
+
+.hamicon::before { top: -8px; }
+.hamicon::after { bottom: -8px; }
+
+.hamicon.is-open { background: transparent; }
+.hamicon.is-open::before { top: 0; transform: rotate(45deg); }
+.hamicon.is-open::after  { bottom: 0; transform: rotate(-45deg); }
+
+/* ===== BACKDROP ===== */
+
+.menubackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(1px);
+}
+
+/* ===== PANEL ===== */
+
+.menupanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(90vw, 340px);
+  background: #111;
+  color: #fff;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  box-shadow: -20px 0 40px rgba(0,0,0,.35);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+}
+
+.menupanel.open {
+  transform: translateX(0);
+}
+
+/* ===== LINKS ===== */
+
+.menunav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.menulink {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 8px;
+  border-radius: 8px;
+}
+
+.menulink:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* ===== EVENTS GRID ===== */
+
+.event-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* ===== EVENT CARD ===== */
+
+.event-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(2px);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.event-card-footer {
+  margin-top: var(--space-2);
+}
+
+/* date + location styling */
+.event-meta {
+  font-size: var(--font-sm);
+  opacity: 0.85;
+}
+
+/* ===== GENERIC INFO GRID ===== */
+
+.info-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* ===== GENERIC INFO CARD ===== */
+
+.info-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(2px);
+  display: grid;
+  gap: var(--space-2);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background-color 140ms ease;
+}
+
+/* Subtle hover lift (can be reused elsewhere) */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  background: rgba(0, 0, 0, 0.10);
+}
+
