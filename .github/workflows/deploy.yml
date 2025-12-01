@@ -28,7 +28,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install  # if this fails, change to: npm install
+        run: npm ci  # if this fails, change to: npm install
 
       - name: Build
         run: npm run build
