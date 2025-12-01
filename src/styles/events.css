@@ -1,0 +1,38 @@
+/* ===== EVENTS GRID ===== */
+
+.event-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* ===== EVENT CARD ===== */
+
+.event-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(2px);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.event-card-footer {
+  margin-top: var(--space-2);
+}
+
+/* date + location styling */
+.event-meta {
+  font-size: var(--font-sm);
+  opacity: 0.85;
+}

@@ -1,0 +1,116 @@
+/* ===== HAMBURGER BUTTON ===== */
+
+.hambtn {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + var(--page-pad));
+  right: calc(
+    env(safe-area-inset-right) + var(--page-pad) + var(--bubble-offset)
+  );
+  z-index: var(--z-menu);
+  width: 54px;
+  height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  cursor: pointer;
+}
+
+.hambtn:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+/* Modify alignment to container if needed */
+.hambtn.align-container {
+  right: calc(
+    50vw - min(var(--container-lg) / 2, 50vw - var(--page-pad))
+  );
+}
+
+/* ===== ICON (3 lines → X) ===== */
+
+.hamicon {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 0 auto;
+  background: #111;
+  transform-origin: center;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.hamicon::before,
+.hamicon::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: #111;
+  transform-origin: center;
+  transition: transform .25s ease, top .25s ease, bottom .25s ease, opacity .2s ease;
+}
+
+.hamicon::before { top: -8px; }
+.hamicon::after { bottom: -8px; }
+
+.hamicon.is-open { background: transparent; }
+.hamicon.is-open::before { top: 0; transform: rotate(45deg); }
+.hamicon.is-open::after  { bottom: 0; transform: rotate(-45deg); }
+
+/* ===== BACKDROP ===== */
+
+.menubackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(1px);
+}
+
+/* ===== PANEL ===== */
+
+.menupanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(90vw, 340px);
+  background: #111;
+  color: #fff;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  box-shadow: -20px 0 40px rgba(0,0,0,.35);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+}
+
+.menupanel.open {
+  transform: translateX(0);
+}
+
+/* ===== LINKS ===== */
+
+.menunav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.menulink {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 8px;
+  border-radius: 8px;
+}
+
+.menulink:hover {
+  background: rgba(255,255,255,.08);
+}

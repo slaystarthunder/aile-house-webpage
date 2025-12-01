@@ -1,0 +1,107 @@
+/* ===== "BOX" SECTIONS (header top, content bottom) ===== */
+
+.section-box {
+  position: sticky;
+  top: 56px; /* sits below the main header / hero */
+  min-height: calc(100vh - 56px);
+  display: grid;
+  grid-template-rows: auto 1fr; /* header + content */
+  align-content: stretch;
+  background: var(--brand-yellow); /* currently white via token */
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Inner sticky header INSIDE the sticky box */
+.section-box-header {
+  position: sticky;
+  top: 56px; /* same as .section-box top so it pins under main header */
+  z-index: 2; /* above the cards/content */
+  padding-block: var(--space-4);
+  background: var(--brand-yellow); /* solid background so content slides under */
+}
+
+@media (max-width: 768px) {
+  .section-box {
+    min-height: auto; /* don't force full viewport on small screens */
+  }
+
+  .section-box-header {
+    top: 0; /* simpler behaviour on small devices */
+  }
+}
+
+/* ===== SECTION LAYOUT + GRID ===== */
+
+.pad-md {
+  padding: var(--space-4);
+}
+
+.pad-lg {
+  padding: var(--space-8);
+}
+
+.section-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* ===== TEXT STYLES FOR SECTION CONTENT ===== */
+
+.panel-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.panel-text {
+  font-size: var(--font-md);
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+/* ===== BUTTONS ===== */
+
+.button-accent {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== GENERIC INFO GRID & CARD ===== */
+
+.info-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.info-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(2px);
+  display: grid;
+  gap: var(--space-2);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background-color 140ms ease;
+}
+
+/* Subtle hover lift (can be reused elsewhere) */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  background: rgba(0, 0, 0, 0.10);
+}

@@ -1,0 +1,25 @@
+/* ===== SURFACE TYPOGRAPHY & SPACING ===== */
+
+.surface {
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+.surface--flat {
+  box-shadow: none;
+}
+
+.surface--elevated {
+  box-shadow: var(--shadow-lg);
+}
+
+.surface--dark {
+  background: #111;
+  color: #fafafa;
+}
+
+.surface--light {
+  background: #fff;
+  color: #111;
+}

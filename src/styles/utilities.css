@@ -4,16 +4,75 @@
   position: sticky;
   top: 0;
   z-index: var(--z-hero);
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 2vw, 18px);
+  gap: 4px;
   text-align: center;
-  padding: clamp(24px, 6vw, 96px) 16px;
+  padding: 12px var(--page-pad);
   background: var(--brand-yellow);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
+
+/* ===== "BOX" SECTIONS (header top, content bottom) ===== */
+
+.section-box {
+  position: sticky;
+  top: 56px; /* sits below the main header / hero */
+  min-height: calc(100vh - 56px);
+  display: grid;
+  grid-template-rows: auto 1fr; /* header + content */
+  align-content: stretch;
+  background: var(--brand-yellow); /* currently white via token */
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Inner sticky header INSIDE the sticky box */
+.section-box-header {
+  position: sticky;
+  top: 56px; /* same as .section-box top so it pins under main header */
+  z-index: 2; /* above the cards */
+  padding-block: var(--space-4);
+  background: var(--brand-yellow); /* solid background so cards slide under */
+}
+
+/* Horizontal row of three cards */
+.qh-card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+/* Surface is the outer container for each card */
+.qh-card-row > .surface {
+  flex: 0 1 30%; /* ~30% width each */
+}
+
+/* Mobile: stack them so they don’t get squished */
+@media (max-width: 768px) {
+  .section-box {
+    min-height: auto; /* don't force full viewport on small screens */
+  }
+
+  .section-box-header {
+    top: 0; /* simpler behaviour on small devices */
+  }
+
+  .qh-card-row {
+    flex-direction: column;
+  }
+
+  .qh-card-row > .surface {
+    flex: 1 1 auto;
+  }
+}
+
+
+/* ===== HERO TEXT ===== */
 
 .eyebrow {
   margin: 0;
@@ -297,4 +356,3 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   background: rgba(0, 0, 0, 0.10);
 }
-

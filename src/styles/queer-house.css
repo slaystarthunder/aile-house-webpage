@@ -1,0 +1,25 @@
+/* ===== QUEER HOUSE SECTION-SPECIFIC LAYOUT ===== */
+
+/* Horizontal row of three cards inside a section box */
+.qh-card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+/* Surface is the outer container for each card */
+.qh-card-row > .surface {
+  flex: 0 1 30%; /* ~30% width each */
+}
+
+/* Mobile: stack them so they don’t get squished */
+@media (max-width: 768px) {
+  .qh-card-row {
+    flex-direction: column;
+  }
+
+  .qh-card-row > .surface {
+    flex: 1 1 auto;
+  }
+}
